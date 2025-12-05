@@ -70,6 +70,11 @@ namespace EntityGenerator.Wpf
                     Log($"Generated: {table}Base.cs, {table}.cs");
                 }
 
+                // 🔹 Generate BaseEntity.cs once after all tables
+                var baseEntityCode = CodeGenerator.GenerateBaseEntity(namespaceName);
+                File.WriteAllText(Path.Combine(outputFolder, "BaseEntity.cs"), baseEntityCode, Encoding.UTF8);
+                Log("Generated: BaseEntity.cs");
+
                 Log("Done.");
             }
             catch (Exception ex)
