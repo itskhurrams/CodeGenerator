@@ -1,0 +1,48 @@
+﻿<Window x:Class="EntityGenerator.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Entity Generator" Height="500" Width="900">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Connection string -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock Text="SQL Connection String:" FontWeight="Bold"/>
+            <TextBox x:Name="txtConnectionString" Height="60"
+                     TextWrapping="Wrap" AcceptsReturn="True"/>
+        </StackPanel>
+
+        <!-- Namespace -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <TextBlock Text="Namespace:" FontWeight="Bold"/>
+            <TextBox x:Name="txtNamespace" Height="30"/>
+        </StackPanel>
+
+        <!-- Output folder & buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    VerticalAlignment="Center" Margin="0,0,0,10">
+            <TextBlock Text="Output Folder:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="txtOutputFolder" Width="450" Margin="0,0,5,0"/>
+            <Button x:Name="btnBrowse" Content="Browse..." Width="80"
+                    Margin="0,0,5,0" Click="btnBrowse_Click"/>
+            <Button x:Name="btnGenerate" Content="Generate" Width="80"
+                    Click="btnGenerate_Click"/>
+        </StackPanel>
+
+        <!-- Log -->
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Log:" FontWeight="Bold"/>
+            <TextBox x:Name="txtLog"
+                     VerticalScrollBarVisibility="Auto"
+                     HorizontalScrollBarVisibility="Auto"
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Window>
